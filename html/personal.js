@@ -1,3 +1,4 @@
+//jQuery is not a dead language!
 let uploadedImage;
 let formActive=false;
 $(document).ready(function(){
@@ -50,33 +51,35 @@ let resetID= function(){
 }
 let updateID=function(){
 	//updates the personal info on the ID by going through the inputs 
+	let blanksString="";
 	let fname = $("#fname-input").val()
 	let lname = $("#lname-input").val()
 	let mname = $("#mname-input").val()
-	console.log(lname)
 	if (fname != ""&&lname !=""&&mname!="") $("#info-name").html(lname.toUpperCase()+", "+fname.toUpperCase()+" "+mname.charAt(0).toUpperCase())
-	else alert("One or more name fields were left blank")
+	else blanksString+="\n One or more name fields were left blank"
 	
 	let location = $("#location-input").val()
 	if (location!="") $("#info-from").html("FROM &nbsp;"+location)
-	else alert("Location field left blank")
+	else blanksString+="\n Location field left blank"
 	
 	let email = $("#email-input").val()
 	if(email!="") $("#info-email").html(email)
-	else alert("Email field left blank")
+	else blanksString+="\n Email field left blank"
 	
 	let bmonth=$("#bmonth-input").val()
 	let bday=$("#bday-input").val()
 	let byear=$("#byear-input").val()
 	if(bmonth!=""&&bday!=""&&byear!="") $("#info-birth").html("DOB &nbsp;&nbsp;&nbsp;&nbsp;"+bmonth+"/"+bday+"/"+byear)
-	else alert("One or more birthday fields were left blank")
+	else blanksString+= "\nOne or more birthday fields were left blank"
 	
 	let description=$("#about-input").val()
-	if(description=="") alert("About you field left blank")
+	if(description=="") blanksString+= "\n About you field left blank"
 	$("#aboutme").html(description)
 	
 	if(uploadedImage!=null) $("#id-photo").attr("src",uploadedImage)
-	else alert("No image uploaded")
+	else blanksString+="\n No image uploaded"
+	//alerts the user of all of the empty fields in their submission
+	if (blanksString!="") alert("Errors in Submission: "+blanksString)
 	
 }
 let toggleForm= function(){

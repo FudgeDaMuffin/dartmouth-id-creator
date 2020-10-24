@@ -163,6 +163,12 @@ body {
 	font-family:Arial;
 	font-size:14px;
 }
+#options-row>div:hover{
+	color:#C1C1C1
+}
+#options-row>div:active{
+	color:#8F8F8F
+}
 #options-row>div{
 	width:50%;
 }
@@ -257,4 +263,20 @@ button {
 	border:0;
 	padding:4px;
 	cursor:pointer;
+}
+#update-button{
+	background-color:#0b4201;
+	color:white;
+}
+#update-button:hover{
+	background-color:#062700;
+}
+#update-button:active{
+	background-color:#031900;
+}
+#reset-button:hover{
+	background-color:#C1C1C1
+}
+#reset-button:active{
+	background-color:#8F8F8F
 }
